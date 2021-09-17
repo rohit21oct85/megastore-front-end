@@ -20,9 +20,10 @@ export default function Register() {
   }
 
   return (
-    <div className="row">
-      <div className="col-md-5 offset-4 products-div p-2">
-        <p>Register</p>
+    <div className="row main-content">
+      <div className="col-md-3 offset-4">
+        <h2>Register</h2>
+        <hr />
         <form onSubmit={handleRegister}>
           <div className="form-group">
             <input
@@ -63,7 +64,7 @@ export default function Register() {
           </div>
           <div className="form-group">
             <button className="btn btn-md btn-success text-white w-100">
-              <span className="fa fa-gears mr-1"></span>
+              <span className="fa fa-gears mr-1"></span> &nbsp;
               Register new Account
             </button>
           </div>
