@@ -29,7 +29,7 @@ const queryClient = new QueryClient({
 function App() {
   return (
     <BrowserRouter>
-      <div className="container-fluid pl-0">
+      <div className="container-fluid">
         <AuthProvider>
           <ToastProvider>
             <Switch>

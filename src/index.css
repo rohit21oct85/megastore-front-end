@@ -37,7 +37,8 @@ code {
 .header{
     position: fixed;
     width:100%;
-    z-index: 9;
+    z-index: 99;
+    background-color: #000;
 }
 .header-category{
   background-color:#fff;
@@ -46,7 +47,7 @@ code {
   height: 99vh;
   width: 25%;
   position: fixed;
-  margin-top: 45px;
+  top: 60px;
 }
 .my-nav{
   height: 80vh;
@@ -80,9 +81,8 @@ a.link-category:hover{
   color: #fff;
 }
 .active{
-  color: black !important;
+  color: #fff !important;
   font-weight: 600;
-  text-transform: lowercase;
   padding-left: 0;
 }
 .product-card{

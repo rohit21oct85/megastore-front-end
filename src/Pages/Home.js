@@ -6,8 +6,8 @@ export default function Home() {
   const { data: categories } = useCategories();
   const history = useHistory();
   return (
-    <div className="container pl-0 pr-0">
-      <div className="row" style={{ paddingTop: "80px" }}>
+    <div className="container">
+      <div className="row pl-0" style={{ paddingTop: "80px" }}>
         <h2>Poular Categories</h2>
         <hr />
         {categories?.map((category) => {
