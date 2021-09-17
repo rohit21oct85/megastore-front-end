@@ -12,7 +12,6 @@ export default function Header() {
 
   function handleLogout(e) {
     e.preventDefault();
-    alert("logout");
     dispatch({ type: "LOGOUT" });
     history.push("/");
   }
@@ -34,9 +33,6 @@ export default function Header() {
             All Products</Nav.Link>
           {state.isLoggedIn ? (
           <>  
-          <Nav.Link>
-            <span className="fa fa-gear text-white"></span>
-          </Nav.Link>
           <NavDropdownMenu title="Manage Account" id="collasible-nav-dropdown" className="pl-0" alignLeft>
             <DropdownSubmenu to="" title="Products">
               <NavDropdown.Item to="/add-products/create" as={NavLink}>
@@ -55,15 +51,17 @@ export default function Header() {
               <span className="fa fa-eye"></span>&nbsp;
                 View Category</NavDropdown.Item>
             </DropdownSubmenu>
-            <Nav.Link className="text-dark" to="/" as={NavLink} onClick={handleLogout}>
-              <span className="fa fa-power-off"></span>
-              &nbsp; 
-              Logout</Nav.Link>
             </NavDropdownMenu>
             <Nav.Link to="/my-cart" as={NavLink}>
             <span className="fa fa-shopping-cart"></span>&nbsp;
               {myCarts?.length} Cart
             </Nav.Link>
+            <Nav.Link to="/" as={NavLink} onClick={handleLogout} >
+              <span className="fa fa-power-off"></span>
+              &nbsp; 
+              Logout
+            </Nav.Link>
+            
             </>
           ) : (
             <>

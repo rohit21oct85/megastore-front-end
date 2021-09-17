@@ -81,10 +81,16 @@ a.link-category:hover{
   color: #fff;
 }
 .active{
-  color: #fff !important;
+  color: #fff;
   font-weight: 600;
   padding-left: 0;
 }
+.logout .active{
+  color: #000 !important;
+  font-weight: 600;
+  padding-left: 0;
+}
+
 .product-card{
   position: relative;
   width: 215px !important;
