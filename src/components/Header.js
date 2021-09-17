@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import useGetCart from "../hooks/useGetCart";
 import { DropdownSubmenu, NavDropdownMenu } from "react-bootstrap-submenu";
@@ -56,27 +56,60 @@ export default function Header() {
     //       </div>
 
     // </header>
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+    <div className="row">
+    <Navbar className="header" collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <div className="container pl-3">
       <Navbar.Brand href="/">Mega Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/products">
-                All products</Nav.Link>
-          <NavDropdownMenu title="Manage Account"  id="collasible-nav-dropdown" Left alignLeft>
+            <span className="fa fa-shopping-bag"></span>&nbsp;
+            All Products</Nav.Link>
+          {state.isLoggedIn ? (
+          <>  
+          <Nav.Link>
+            <span className="fa fa-gear text-white"></span>
+          </Nav.Link>
+          <NavDropdownMenu title="Manage Account" id="collasible-nav-dropdown" className="pl-0" alignLeft>
             <DropdownSubmenu href="" title="Products">
-              <NavDropdown.Item href="#action/8.1">Add products</NavDropdown.Item>
-              <NavDropdown.Item href="#action/8.1">View products</NavDropdown.Item>
+              <NavDropdown.Item href="/add-products/create">
+                <span className="fa fa-plus-square"></span>&nbsp;
+                Add products</NavDropdown.Item>
+              <NavDropdown.Item href="/add-products/view">
+                <span className="fa fa-eye"></span>&nbsp;
+                View products</NavDropdown.Item>
             </DropdownSubmenu>
             
             <DropdownSubmenu href="" title="Category">
-              <NavDropdown.Item href="#action/8.1">Add Category</NavDropdown.Item>
-              <NavDropdown.Item href="#action/8.1">View Category</NavDropdown.Item>
+              <NavDropdown.Item href="/add-category/create">
+              <span className="fa fa-plus-square"></span>&nbsp;
+              Add Category</NavDropdown.Item>
+              <NavDropdown.Item href="/add-category/view">
+              <span className="fa fa-eye"></span>&nbsp;
+                View Category</NavDropdown.Item>
             </DropdownSubmenu>
+            <Nav.Link className="text-dark" href="/" onClick={handleLogout}>
+              <span className="fa fa-power-off"></span>
+              &nbsp; 
+              Logout</Nav.Link>
             </NavDropdownMenu>
+            <Nav.Link href="/my-cart">
+            <span className="fa fa-shopping-cart"></span>&nbsp;
+              {myCarts?.length} Cart
+            </Nav.Link>
+            </>
+          ) : (
+            <>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
+            </>
+          )}
         </Nav>
 
       </Navbar.Collapse>
+      </div>
     </Navbar>
+    </div>
   );
 }
