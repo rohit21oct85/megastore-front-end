@@ -59,11 +59,11 @@ export default function Header() {
     <div className="row">
     <Navbar className="header" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <div className="container pl-3">
-      <Navbar.Brand href="/">Mega Store</Navbar.Brand>
+      <Navbar.Brand to="/">Mega Store</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/products">
+          <Nav.Link to="/products">
             <span className="fa fa-shopping-bag"></span>&nbsp;
             All Products</Nav.Link>
           {state.isLoggedIn ? (
@@ -72,37 +72,37 @@ export default function Header() {
             <span className="fa fa-gear text-white"></span>
           </Nav.Link>
           <NavDropdownMenu title="Manage Account" id="collasible-nav-dropdown" className="pl-0" alignLeft>
-            <DropdownSubmenu href="" title="Products">
-              <NavDropdown.Item href="/add-products/create">
+            <DropdownSubmenu to="" title="Products">
+              <NavDropdown.Item to="/add-products/create">
                 <span className="fa fa-plus-square"></span>&nbsp;
                 Add products</NavDropdown.Item>
-              <NavDropdown.Item href="/add-products/view">
+              <NavDropdown.Item to="/add-products/view">
                 <span className="fa fa-eye"></span>&nbsp;
                 View products</NavDropdown.Item>
             </DropdownSubmenu>
             
-            <DropdownSubmenu href="" title="Category">
-              <NavDropdown.Item href="/add-category/create">
+            <DropdownSubmenu to="" title="Category">
+              <NavDropdown.Item to="/add-category/create">
               <span className="fa fa-plus-square"></span>&nbsp;
               Add Category</NavDropdown.Item>
-              <NavDropdown.Item href="/add-category/view">
+              <NavDropdown.Item to="/add-category/view">
               <span className="fa fa-eye"></span>&nbsp;
                 View Category</NavDropdown.Item>
             </DropdownSubmenu>
-            <Nav.Link className="text-dark" href="/" onClick={handleLogout}>
+            <Nav.Link className="text-dark" to="/" onClick={handleLogout}>
               <span className="fa fa-power-off"></span>
               &nbsp; 
               Logout</Nav.Link>
             </NavDropdownMenu>
-            <Nav.Link href="/my-cart">
+            <Nav.Link to="/my-cart">
             <span className="fa fa-shopping-cart"></span>&nbsp;
               {myCarts?.length} Cart
             </Nav.Link>
             </>
           ) : (
             <>
-            <Nav.Link href="/login">Login</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            <Nav.Link to="/login">Login</Nav.Link>
+            <Nav.Link to="/register">Register</Nav.Link>
             </>
           )}
         </Nav>
